@@ -9,6 +9,7 @@
 const tipos      = ['C', 'D', 'H', 'S'];
 const especiales = ['A', 'J', 'Q', 'K'];
 
+ // esta funcion crea el deck de cartas
  const crearDeck = () => {
     
      for (let i = 2; i <= 10; i++) {
@@ -22,7 +23,26 @@ const especiales = ['A', 'J', 'Q', 'K'];
      }
     }
 
+    deck = _.shuffle(deck);
     console.log(deck);
+    return deck;
  };
- 
+  
  crearDeck();
+
+  //esta funcion me permite tomar una carta del deck
+  const  pedirCarta = () => {
+      console.log(deck);
+    const carta = deck.pop();
+    console.log(carta); // carta debe ser de la baraja
+    console.log(deck);
+    return carta;
+  };
+
+  pedirCarta();
+
+
+ 
+
+
+    
