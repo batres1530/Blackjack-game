@@ -32,14 +32,41 @@ const especiales = ['A', 'J', 'Q', 'K'];
 
   //esta funcion me permite tomar una carta del deck
   const  pedirCarta = () => {
-      console.log(deck);
-    const carta = deck.pop();
+      // console.log(deck); aqui se muestra la baraja de cartas
+      // const carta = desck.unshift();
+      
+        if (deck.length === 0) {
+            throw 'No hay cartas en el deck';
+        }
+
+      const carta = deck.pop();
+
     console.log(carta); // carta debe ser de la baraja
     console.log(deck);
     return carta;
   };
 
-  pedirCarta();
+//  pedirCarta();
+ 
+const valorCarta = (carta) => {
+   const valor = carta.substring(0, carta.length - 1);
+   let puntos = 0;
+   
+ if (isNaN(valor)) {
+     console.log('La carta no es un numero');
+ } 
+ else {
+    console.log('La carta es un numero');
+    puntos = valor *1;
+} 
+ 
+    console.log(puntos);
+//    return valor;
+};
+
+valorCarta('kD');
+
+throw 'el cookie muco se tardo en la cara';
 
 
  
