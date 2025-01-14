@@ -57,7 +57,7 @@ const valorCarta = (carta) => {
     return (isNaN(valor)) ? (valor === 'A') ? 11 : 10 : valor * 1;
 };
 const valor = valorCarta(pedirCarta());
-console.log({ valor });
+
 
 
 
