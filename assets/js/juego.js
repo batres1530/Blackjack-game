@@ -5,10 +5,12 @@
  2S =  es de espadas
  */
 
-let deck = [];
-const tipos = ['C', 'D', 'H', 'S'];
-const especiales = ['A', 'J', 'Q', 'K'];
-let puntosJugador = 0,
+ // el deck funciona para majejar la baraja por asi desirlo
+let deck = []; // aqui se declara como areglo basio
+const tipos = ['C', 'D', 'H', 'S']; // esto son los tipos de cartas 
+const especiales = ['A', 'J', 'Q', 'K']; // esto son las cartas especiales 
+// aqui se declaran los puntos de los jugadores 
+let puntosJugador = 0, 
     puntosComputadora = 0;
 
 // REFERENCIAS HTML
@@ -31,18 +33,18 @@ const crearDeck = () => {
         }
     }
    
-    deck = _.shuffle(deck);
+    deck =  _.shuffle(deck); //sirve para mover o mesclar la baraja de cartas
     
     return deck;
 };
 
 crearDeck();
 
+
 //esta funcion me permite tomar una carta del deck
 const pedirCarta = () => {
     //  console.log(deck); //aqui se muestra la baraja de cartas
     // const carta = desck.unshift();
-
     if (deck.length === 0) {
         throw 'No hay cartas en el deck';
     }
@@ -74,10 +76,18 @@ btnPedir.addEventListener('click',() => {
 
     //<img  class="carta" src="assets/cartas/10C.png" alt="carta" class="img-fluid">
 
-    const img = document.createElement('img');
+    const img = document.createElement('img'); // se crea una imagen de la carta
      img.src=`assets/cartas/${carta}.png`;
-     divCartasJugador.append(img);
-     img.classList.add('carta');
+     divCartasJugador.append(img); // es lo que perdmite menia el dom para agregar la imagen
+     img.classList.add('carta'); // es la clase que se le asigna a la imagen
+
+     if (puntosJugador > 21) {
+         console.warn('Lo siento mucho, perdiste');
+         btnPedir.disabled = true;
+     } else if (puntosJugador === 21) {
+         console.warn('21, genial');
+         btnPedir.disabled = true;
+     }
 });
 
 
