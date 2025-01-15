@@ -13,6 +13,7 @@ let puntosJugador = 0,
 
 // REFERENCIAS HTML
 const btnPedir = document.querySelector('#btnPedir');
+const divCartasJugador = document.querySelector('#jugador-cartas');
 const puntosHtml = document.querySelectorAll('b');
 
 
@@ -70,7 +71,13 @@ btnPedir.addEventListener('click',() => {
     const carta = pedirCarta();
     puntosJugador = puntosJugador + valorCarta(carta);
     puntosHtml[0].innerText = puntosJugador;
-    console.log(puntosJugador);
+
+    //<img  class="carta" src="assets/cartas/10C.png" alt="carta" class="img-fluid">
+
+    const img = document.createElement('img');
+     img.src=`assets/cartas/${carta}.png`;
+     divCartasJugador.append(img);
+     img.classList.add('carta');
 });
 
 
